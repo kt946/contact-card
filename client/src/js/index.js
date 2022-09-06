@@ -2,6 +2,9 @@
 import  "./form";
 import "./submit";
 
+// Import CSS files
+import "../css/index.css";
+
 // Import images
 import Logo from '../images/my-new-logo.png';
 import Bear from '../images/bear.png';
