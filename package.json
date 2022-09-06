@@ -23,6 +23,10 @@
     "url": "https://github.com/kt946/contact-card/issues"
   },
   "homepage": "https://github.com/kt946/contact-card#readme",
+  "engines": {
+    "node": "16.15.1"
+  },
+  "heroku-prebuild": "npm install --dev",
   "dependencies": {
     "concurrently": "^7.3.0"
   }
