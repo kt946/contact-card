@@ -1,6 +1,6 @@
 // Import modules
 import { toggleForm, clearForm } from "./form";
-import { initdb, getDb, postDb } from './database';
+import { initdb, getDb, postDb, deleteDb } from './database';
 import { fetchCards } from './cards';
 
 // Import Bootstrap and Popper
@@ -37,25 +37,33 @@ newContactButton.addEventListener('click', event => {
 form.addEventListener('submit', event => {
   // Handle data
   event.preventDefault();
-let name = document.getElementById("name").value;
-let phone = document.getElementById("phone").value;
-let email = document.getElementById("email").value;
-let profile = document.querySelector('input[type="radio"]:checked').value;
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let email = document.getElementById("email").value;
+  let profile = document.querySelector('input[type="radio"]:checked').value;
 
   // Post form data to IndexedDB OR Edit an existing card in IndexedDB
-if (submitBtnToUpdate == false) {
-  postDb(name, email, phone, profile);
-} else {
-
-  fetchCards();
+  if (submitBtnToUpdate == false) {
+    postDb(name, email, phone, profile);
+  } else {
+    fetchCards();
     // Toggles the submit button back to POST functionality
-  submitBtnToUpdate = false;
-}
+    submitBtnToUpdate = false;
+  }
 
-// Clear form
-clearForm();
-// Toggle form
-toggleForm();
-// Reload the DOM
-fetchCards();
+  // Clear form
+  clearForm();
+  // Toggle form
+  toggleForm();
+  // Reload the DOM
+  fetchCards();
 });
+
+window.deleteCard = (e) => {
+  // Grabs the id from the button element attached to the contact card.
+  let id = parseInt(e.id);
+  // Delete the card
+  deleteDb(id);
+  // Reload the DOM
+  fetchCards();
+};
