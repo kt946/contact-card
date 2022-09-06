@@ -2,6 +2,10 @@
 import  "./form";
 import "./submit";
 
+// Import Bootstrap and Popper
+import { Tooltip, Toast, Popover } from 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // Import CSS files
 import "../css/index.css";
 
