@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/index.css";
 
 // Import images
-import Logo from '../images/my-new-logo.png';
+import Logo from '../images/logo.png';
 import Bear from '../images/bear.png';
 import Dog from '../images/dog.png';
 
